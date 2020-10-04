@@ -22,11 +22,11 @@ const validation = params => {
         process.exit(1);
     }
     if (input && !fs.existsSync(input)) {
-        console.log(`Error: File ${input} doesn't exist`);
+        console.log(`Error: file '${input}' doesn't exist`);
         process.exit(1);
     }
     if (output && !fs.existsSync(output)) {
-        console.log(`Error: File ${output} doesn't exist`);
+        console.log(`Error: file '${output}' doesn't exist`);
         process.exit(1);
     }
     return false;
