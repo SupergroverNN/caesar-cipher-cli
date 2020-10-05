@@ -6,27 +6,27 @@ const validation = params => {
     const { action, shift, input, output } = params;
 
     if (!action) {
-        console.log('Error: -action is required');
+        process.stderr.write('Error: -action is required');
         process.exit(1);
     }
     if (action && !actionType.includes(action)) {
-        console.log('Error: please enter valid -action (encode / decode)')
+        process.stderr.write('Error: please enter valid -action (encode / decode)')
         process.exit(1);
     }
     if (!shift) {
-        console.log('Error: -shift is required');
+        process.stderr.write('Error: -shift is required');
         process.exit(1);
     }
     if (shift && (isNaN(shift) || shift < 0)) {
-        console.log('Error: -shift value must be a positive numeric');
+        process.stderr.write('Error: -shift value must be a positive numeric');
         process.exit(1);
     }
     if (input && !fs.existsSync(input)) {
-        console.log(`Error: file '${input}' doesn't exist`);
+        process.stderr.write(`Error: file '${input}' doesn't exist`);
         process.exit(1);
     }
     if (output && !fs.existsSync(output)) {
-        console.log(`Error: file '${output}' doesn't exist`);
+        process.stderr.write(`Error: file '${output}' doesn't exist`);
         process.exit(1);
     }
     return false;

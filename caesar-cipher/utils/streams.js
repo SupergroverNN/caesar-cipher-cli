@@ -6,7 +6,7 @@ const streamInput = input => {
     if (input) {
         return fs.createReadStream(input);
     }
-    console.log('enter text');
+    console.log('Please enter text');
     return process.stdin;
 }
 
